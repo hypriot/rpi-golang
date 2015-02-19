@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/lists/*
 
 # Compile Go from source
-ENV GOLANG_VERSION 1.3.3
+ENV GOLANG_VERSION 1.4.1
 ADD ./etc/services /etc/services
 RUN \
     mkdir -p /goroot && \
