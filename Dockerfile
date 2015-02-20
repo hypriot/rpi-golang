@@ -1,6 +1,6 @@
 
 # Pull base image
-FROM resin/rpi-raspbian
+FROM resin/rpi-raspbian:wheezy
 MAINTAINER Dieter Reuter <dieter@hypriot.com>
 
 # Install dependencies
