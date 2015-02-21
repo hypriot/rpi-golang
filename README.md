@@ -3,7 +3,7 @@ Docker Image packaging for GOLANG, used for Raspberry Pi
 
 ## run a `docker build` step
 ```bash
-./buid.sh
+./build.sh
 ```
 
 ## push Docker Image to Docker Hub
