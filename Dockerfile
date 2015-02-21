@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/lists/*
 
 # Compile Go from source
-ENV GOLANG_VERSION 1.4.2
+ENV GOLANG_VERSION 1.3.3
 ADD ./etc/services /etc/services
 RUN \
     mkdir -p /goroot && \
@@ -22,7 +22,7 @@ RUN \
     cd /goroot && \
     git checkout go$GOLANG_VERSION && \
     cd /goroot/src && \
-    GOARM=6 ./all.bash 
+    GOARM=6 ./all.bash
 
 # Set environment variables
 ENV GOROOT /goroot
