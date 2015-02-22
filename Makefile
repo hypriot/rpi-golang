@@ -1,5 +1,5 @@
 .PHONY: all build push test version
-include VERSION.txt
+include VERSION.env
 
 DOCKER_IMAGE_VERSION=$(VERSION)
 DOCKER_IMAGE_NAME=hypriot/rpi-golang
@@ -13,7 +13,8 @@ build:
 push:
 	docker push $(DOCKER_IMAGE_NAME)
 
-test: version
+test:
+	docker run --rm $(DOCKER_IMAGE_NAME) /bin/echo "Success."
 
 version:
 	docker run --rm $(DOCKER_IMAGE_NAME) go version
