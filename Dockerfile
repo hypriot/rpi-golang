@@ -1,7 +1,5 @@
-
 # Pull base image
 FROM resin/rpi-raspbian:wheezy
-FROM hypriot/rpi-golang:1.4.2
 MAINTAINER Dieter Reuter <dieter@hypriot.com>
 
 # Install dependencies
@@ -15,25 +13,25 @@ RUN apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/lists/*
 
 # Compile Go from source
-ENV GOROOT_BOOTSTRAP /goroot
-ENV GOLANG_VERSION 1.5
+ENV GOLANG_VERSION 1.4.2
 ADD ./etc/services /etc/services
 RUN \
-    mkdir -p /goroot1.5 && \
-    git clone https://go.googlesource.com/go /goroot1.5 && \
-    cd /goroot1.5 && \
+    mkdir -p /goroot && \
+    git clone https://go.googlesource.com/go /goroot && \
+    cd /goroot && \
     git checkout go$GOLANG_VERSION && \
-    cd /goroot1.5/src && \
+    cd /goroot/src && \
     GOARM=6 ./all.bash
 
 # Set environment variables
-ENV GOROOT /goroot1.5
-ENV GOPATH /gopath1.5
+ENV GOROOT /goroot
+ENV GOPATH /gopath
 ENV GOARM 6
 ENV PATH $GOROOT/bin:$GOPATH/bin:$PATH
 
 # Define working directory
-WORKDIR /gopath1.5
+WORKDIR /gopath
 
 # Define default command
 CMD ["bash"]
+
