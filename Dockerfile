@@ -34,4 +34,4 @@ WORKDIR /gopath
 
 # Define default command
 CMD ["bash"]
-
+ 
