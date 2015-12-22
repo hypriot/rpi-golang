@@ -5,7 +5,7 @@ build:
   commands:
     - apk update && apk add tar gzip curl
     - export VERSION=1.5.2
-    - export URL=https://github.com/hypriot/golang-armbuilds/releases/download/v${VERSION}/go${VERSION}linux-armv6.tar.gz
+    - export URL=https://github.com/hypriot/golang-armbuilds/releases/download/v${VERSION}/go${VERSION}.linux-armv6.tar.gz
     - curl -L ${URL} > ./go.tar.gz
     - mkdir content/
     - tar xzf go.tar.gz -C content/
